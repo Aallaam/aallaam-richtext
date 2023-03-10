@@ -7,7 +7,7 @@
             <v-icon v-text="`mdi-format-bold`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.bold.tooltip') }}</span>
+        <span>{{ boldTooltip }}</span>
       </v-tooltip>
       
       <v-tooltip top>
@@ -16,7 +16,7 @@
             <v-icon v-text="`mdi-format-italic`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.italic.tooltip') }}</span>
+        <span>{{ italicTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -25,7 +25,7 @@
             <v-icon v-text="`mdi-format-underline`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.underline.tooltip') }}</span>
+        <span>{{ underlineTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -34,7 +34,7 @@
             <v-icon v-text="`mdi-format-align-left`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.align_left.tooltip') }}</span>
+        <span>{{ alignLeftTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -43,7 +43,7 @@
             <v-icon v-text="`mdi-format-align-center`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.align_center.tooltip') }}</span>
+        <span>{{ alignCenterTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -52,7 +52,7 @@
             <v-icon v-text="`mdi-format-align-right`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.align_right.tooltip') }}</span>
+        <span>{{ alignRightTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -61,7 +61,7 @@
             <v-icon v-text="`mdi-format-pilcrow-arrow-right`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.dir_ltr.tooltip') }}</span>
+        <span>{{ dirLtrTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -70,7 +70,7 @@
             <v-icon v-text="`mdi-format-pilcrow-arrow-left`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.dir_rtl.tooltip') }}</span>
+        <span>{{ dirRtlTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -79,7 +79,7 @@
             <v-icon v-text="`mdi-format-subscript`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.subscript.tooltip') }}</span>
+        <span>{{ subscriptTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -88,7 +88,7 @@
             <v-icon v-text="`mdi-format-superscript`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.supscript.tooltip') }}</span>
+        <span>{{ supscriptTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -97,7 +97,7 @@
             <v-icon v-text="`mdi-format-list-numbered`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.list_numbered.tooltip') }}</span>
+        <span>{{ listNumberedTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -106,7 +106,7 @@
             <v-icon v-text="`mdi-format-list-bulleted`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.list_bulleted.tooltip') }}</span>
+        <span>{{ listBulletedTooltip }}</span>
       </v-tooltip>
 
       <v-menu offset-y>
@@ -118,7 +118,7 @@
                   <v-icon v-text="`mdi-table`" />
                 </v-btn>
               </template>
-              <span>{{ $t('richtext.table.tooltip') }}</span>
+              <span>{{ tableTooltip }}</span>
             </v-tooltip>
           </span>
         </template>
@@ -140,7 +140,7 @@
             <v-icon v-text="`mdi-format-quote-close`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.quote.tooltip') }}</span>
+        <span>{{ quoteTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -149,7 +149,7 @@
             <v-icon v-text="`mdi-code-tags`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.code.tooltip') }}</span>
+        <span>{{ codeTooltip }}</span>
       </v-tooltip>
 
       <v-dialog v-model="linkDialog" width="500">
@@ -161,22 +161,22 @@
                   <v-icon v-text="`mdi-link-variant`" />
                 </v-btn>
               </template>
-              <span>{{ $t('richtext.link.tooltip') }}</span>
+              <span>{{ linkTooltip }}</span>
             </v-tooltip>
           </span>
         </template>
 
         <v-card>
-          <v-card-title v-text="$t('richtext.link.title')" />
+          <v-card-title v-text="linkTitle" />
 
           <v-card-text>
-            <v-text-field v-model="linkUrl" :label="$t('richtext.link.input.label')" :placeholder="$t('richtext.link.input.placeholder')" dir="ltr" class="my-3" outlined hide-details />
+            <v-text-field v-model="linkUrl" :label="linkInputLabel" :placeholder="linkInputPlaceholder" dir="ltr" class="my-3" outlined hide-details />
           </v-card-text>
 
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="primary" @click="setLink()" min-width="125" large>
-              {{ $t('richtext.link.button') }}
+              {{ linkButtonText }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -188,7 +188,7 @@
             <v-icon v-text="`mdi-arrow-u-left-top`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.undo.tooltip') }}</span>
+        <span>{{ undoTooltip }}</span>
       </v-tooltip>
 
       <v-tooltip top>
@@ -197,7 +197,7 @@
             <v-icon v-text="`mdi-arrow-u-right-top`" />
           </v-btn>
         </template>
-        <span>{{ $t('richtext.redo.tooltip') }}</span>
+        <span>{{ redoTooltip }}</span>
       </v-tooltip>
 
       <v-divider />
@@ -210,7 +210,7 @@
                 <input ref="newImagesInput" @change="addImages($event)" class="d-none" type="file" name="images" accept="image/*" multiple>
                 <div class="border-dashed px-3 py-5 text-center primary--text h-100 d-flex flex-column align-center justify-center">
                     <v-icon color="primary" v-text="`mdi-camera`" class="display-1" small />
-                    <div class="caption">{{ $t('questions.upload_image') }}</div>
+                    <div class="caption">{{ uploadImageText }}</div>
                 </div>
             </label>
         </v-card-text>
@@ -248,6 +248,98 @@ export default {
   name: 'AallaamRichText',
   components: { EditorContent },
   props: {
+    boldTooltip: {
+      type: String,
+      default: 'Bold',
+    },
+    italicTooltip: {
+      type: String,
+      default: 'Italic',
+    },
+    underlineTooltip: {
+      type: String,
+      default: 'Underline',
+    },
+    alignLeftTooltip: {
+      type: String,
+      default: 'Align Left',
+    },
+    alignCenterTooltip: {
+      type: String,
+      default: 'Align Center',
+    },
+    alignRightTooltip: {
+      type: String,
+      default: 'Align Right',
+    },
+    dirLtrTooltip: {
+      type: String,
+      default: 'Dir Ltr',
+    },
+    dirRtlTooltip: {
+      type: String,
+      default: 'Dir Rtl',
+    },
+    subscriptTooltip: {
+      type: String,
+      default: 'Subscript',
+    },
+    supscriptTooltip: {
+      type: String,
+      default: 'Supscript',
+    },
+    listNumberedTooltip: {
+      type: String,
+      default: 'List Numbered',
+    },
+    listBulletedTooltip: {
+      type: String,
+      default: 'List Bulleted',
+    },
+    tableTooltip: {
+      type: String,
+      default: 'Table',
+    },
+    quoteTooltip: {
+      type: String,
+      default: 'Quote',
+    },
+    codeTooltip: {
+      type: String,
+      default: 'Code',
+    },
+    linkTooltip: {
+      type: String,
+      default: 'Link',
+    },
+    undoTooltip: {
+      type: String,
+      default: 'Undo',
+    },
+    redoTooltip: {
+      type: String,
+      default: 'Redo',
+    },
+    linkTitle: {
+      type: String,
+      default: 'Link Title',
+    },
+    linkInputLabel: {
+      type: String,
+      default: 'Link Lable',
+    },
+    linkInputPlaceholder: {
+      type: String,
+      default: 'Link Placeholder',
+    },
+    linkButtonText: {
+      type: String,
+      default: 'Link button text',
+    },
+    uploadImageText: {
+      type: String,
+      default: 'Upload Image text',
+    },
     value: {
       type: String,
       default: '',
@@ -317,3 +409,187 @@ export default {
   },
 }
 </script>
+
+<style lang="sass">
+@function map-deep-merge($parent-map, $child-map)
+  $result: $parent-map
+
+  @each $key, $child in $child-map
+    $parent-has-key: map-has-key($result, $key)
+    $parent-value: map-get($result, $key)
+    $parent-type: type-of($parent-value)
+    $child-type: type-of($child)
+    $parent-is-map: $parent-type == map
+    $child-is-map: $child-type == map
+
+    @if (not $parent-has-key) or ($parent-type != $child-type) or (not ($parent-is-map and $child-is-map))
+      $result: map-merge($result, ( $key: $child ))
+
+    @else
+      $result: map-merge($result, ( $key: map-deep-merge($parent-value, $child) ))
+
+  @return $result
+
+</style>
+
+<style lang="scss">
+$grid-breakpoints: (
+  'xs': 0,
+  'sm': 600px,
+  'md': 960px,
+  'lg': 1280px - 16px,
+  'xl': 1920px - 16px
+) !default;
+
+$display-breakpoints: (
+  'print-only': 'only print',
+  'screen-only': 'only screen',
+  'xs-only': 'only screen and (max-width: #{map-get($grid-breakpoints, 'sm') - 0.02})',
+  'sm-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'sm')}) and (max-width: #{map-get($grid-breakpoints, 'md') - 0.02})',
+  'sm-and-down': 'only screen and (max-width: #{map-get($grid-breakpoints, 'md') - 0.02})',
+  'sm-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'sm')})',
+  'md-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'md')}) and (max-width: #{map-get($grid-breakpoints, 'lg') - 0.02})',
+  'md-and-down': 'only screen and (max-width: #{map-get($grid-breakpoints, 'lg') - 0.02})',
+  'md-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'md')})',
+  'lg-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'lg')}) and (max-width: #{map-get($grid-breakpoints, 'xl') - 0.02})',
+  'lg-and-down': 'only screen and (max-width: #{map-get($grid-breakpoints, 'xl') - 0.02})',
+  'lg-and-up': 'only screen and (min-width: #{map-get($grid-breakpoints, 'lg')})',
+  'xl-only': 'only screen and (min-width: #{map-get($grid-breakpoints, 'xl')})'
+) !default;
+
+.richtext-container {
+  font-size: 1.5em;
+  .v-toolbar {
+      padding: 0;
+      transition: .3s;
+  }
+  .v-toolbar__content {
+      height: 0;
+      overflow: hidden;
+      div {
+          .v-btn {
+              &:nth-last-child(1) {
+                  display: none;
+              }
+              @media #{map-get($display-breakpoints, 'xs-only')} {
+                  height: 22px;
+                  width: 22px;
+                  .v-icon {
+                      font-size: 20px;
+                      height: 20px;
+                      width: 20px;
+                  }
+              }
+          }
+      }
+  }
+  .tiptap-vuetify-editor__content {
+      padding: 0;
+      .ProseMirror {
+          margin: 0 1rem !important;
+      }
+  }
+}
+
+
+.table-insert-cells {
+  width: 11px;
+  height: 10px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  margin: 0 1px;
+  display: inline-block;
+  &.active {
+      background-color: #f57c00;
+  }
+}
+
+.richtext-content {
+  p,
+  img {
+      margin: .5rem 0 !important;
+  }
+  ul,
+  ol {
+      padding-right: 24px;
+  }
+  img {
+      display: block;
+  }
+  blockquote {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-radius: 5px;
+      padding: .5rem;
+      margin: .5rem;
+  }
+  table {
+      border-collapse: collapse;
+      table-layout: fixed;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      td,
+      th {
+        min-width: 1em;
+        border: 2px solid #ced4da;
+        padding: 3px 5px;
+        vertical-align: top;
+        box-sizing: border-box;
+        position: relative;
+        > * {
+          margin-bottom: 0;
+        }
+      }
+      th {
+        font-weight: bold;
+        text-align: left;
+        background-color: #f1f3f5;
+      }
+      .selectedCell:after {
+        z-index: 2;
+        position: absolute;
+        content: "";
+        left: 0; right: 0; top: 0; bottom: 0;
+        background: rgba(200, 200, 255, 0.4);
+        pointer-events: none;
+      }
+      .column-resize-handle {
+        position: absolute;
+        right: -2px;
+        top: 0;
+        bottom: -2px;
+        width: 4px;
+        background-color: #adf;
+        pointer-events: none;
+      }
+      p {
+        margin: 0;
+      }
+  }
+}
+
+[dir=rtl] {
+  .tiptap-vuetify-editor__content p.tiptap-vuetify-editor__paragraph--is-empty:first-child:before {
+      float: right !important;
+  }
+}
+
+.ProseMirror {
+  min-height: 100px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  &:focus-visible {
+      outline: none;
+  }
+}
+
+.tableWrapper {
+  padding: 1rem 0;
+  overflow-x: auto;
+}
+
+.resize-cursor {
+  cursor: ew-resize;
+  cursor: col-resize;
+}
+</style>

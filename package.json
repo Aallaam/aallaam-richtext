@@ -8,19 +8,23 @@
   },
   "repository": "https://github.com/Aallaam/aallaam-richtext",
   "bugs": "https://github.com/Aallaam/aallaam-richtext/issues",
-  "keywords": ["keywords", "go", "here"],
+  "keywords": [
+    "keywords",
+    "go",
+    "here"
+  ],
   "license": "MIT",
-  "main" : ".dist/aallaam-richtext.common.js",
-  "files": ["dist/*"],
+  "main": ".dist/aallaam-richtext.common.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-library" : "vue-cli-service build --target lib --name aallaam-richtext ./install.js"
+    "build-library": "vue-cli-service build --target lib --name aallaam-richtext ./install.js"
   },
   "dependencies": {
-    "core-js": "^3.8.3",
-    "vue": "^2.6.14",
     "@tiptap/core": "^2.0.0-beta.209",
     "@tiptap/extension-blockquote": "^2.0.0-beta.209",
     "@tiptap/extension-bold": "^2.0.0-beta.209",
@@ -45,7 +49,11 @@
     "@tiptap/extension-text-align": "^2.0.0-beta.217",
     "@tiptap/extension-underline": "^2.0.0-beta.209",
     "@tiptap/prosemirror-tables": "^1.1.4",
-    "@tiptap/vue-2": "^2.0.0-beta.209"
+    "@tiptap/vue-2": "^2.0.0-beta.209",
+    "core-js": "^3.8.3",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.0",
+    "vue": "^2.6.14"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
