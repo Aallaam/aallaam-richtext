@@ -1,15 +1,51 @@
 {
   "name": "aallaam-richtext",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": {
+    "name": "Aallaam",
+    "email": "support@aallaam.com"
+  },
+  "repository": "https://github.com/Aallaam/aallaam-richtext",
+  "bugs": "https://github.com/Aallaam/aallaam-richtext/issues",
+  "keywords": ["keywords", "go", "here"],
+  "license": "MIT",
+  "main" : ".dist/aallaam-richtext.common.js",
+  "files": ["dist/*"],
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --port 3000",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-library" : "vue-cli-service build --target lib --name aallaam-richtext ./install.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "vue": "^2.6.14",
+    "@tiptap/core": "^2.0.0-beta.209",
+    "@tiptap/extension-blockquote": "^2.0.0-beta.209",
+    "@tiptap/extension-bold": "^2.0.0-beta.209",
+    "@tiptap/extension-bullet-list": "^2.0.0-beta.209",
+    "@tiptap/extension-code": "^2.0.0-beta.209",
+    "@tiptap/extension-document": "^2.0.0-beta.209",
+    "@tiptap/extension-gapcursor": "^2.0.0-beta.209",
+    "@tiptap/extension-history": "^2.0.0-beta.209",
+    "@tiptap/extension-image": "^2.0.0-beta.209",
+    "@tiptap/extension-italic": "^2.0.0-beta.209",
+    "@tiptap/extension-link": "^2.0.0-beta.209",
+    "@tiptap/extension-list-item": "^2.0.0-beta.209",
+    "@tiptap/extension-ordered-list": "^2.0.0-beta.209",
+    "@tiptap/extension-paragraph": "^2.0.0-beta.209",
+    "@tiptap/extension-subscript": "^2.0.0-beta.209",
+    "@tiptap/extension-superscript": "^2.0.0-beta.209",
+    "@tiptap/extension-table": "^2.0.0-beta.209",
+    "@tiptap/extension-table-cell": "^2.0.0-beta.209",
+    "@tiptap/extension-table-header": "^2.0.0-beta.209",
+    "@tiptap/extension-table-row": "^2.0.0-beta.209",
+    "@tiptap/extension-text": "^2.0.0-beta.209",
+    "@tiptap/extension-text-align": "^2.0.0-beta.217",
+    "@tiptap/extension-underline": "^2.0.0-beta.209",
+    "@tiptap/prosemirror-tables": "^1.1.4",
+    "@tiptap/vue-2": "^2.0.0-beta.209"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
