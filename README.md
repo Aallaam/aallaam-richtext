@@ -14,7 +14,7 @@ npm install aallaam-richtext
     </div>
 </template>
  
-<script type="text/babel">
+<script>
     import AallaamRichtext from 'aallaam-richtext'
  
     export default {
