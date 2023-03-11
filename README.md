@@ -1,24 +1,26 @@
 # aallaam-richtext
 
-## Project setup
+## Installation
+### npm
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm install aallaam-richtext
 ```
 
-### Compiles and minifies for production
+## Usage
 ```
-npm run build
+<template>
+    <div>
+        <aallaam-richtext :withImage="true" />
+    </div>
+</template>
+ 
+<script type="text/babel">
+    import AallaamRichtext from 'aallaam-richtext'
+ 
+    export default {
+        components: {
+            AallaamRichtext
+        }
+    }
+</script>
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

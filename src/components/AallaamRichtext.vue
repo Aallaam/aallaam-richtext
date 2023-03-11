@@ -1,5 +1,5 @@
 <template>
-  <div class="richtext-container richtext-content">
+  <div class="richtext-container richtext-content" data-app>
     <div v-if="editor">
       <v-tooltip top>
         <template v-slot:activator="{ on, attrs }">
@@ -351,7 +351,7 @@ export default {
     withImage: {
       type: Boolean,
       default: false
-    },
+    }
   },
   watch: {
     value(newVal) {
@@ -383,10 +383,8 @@ export default {
   methods: {
     addImages(event) {
       Object.values(event.target.files).map(async file => {
-        const formData = new FormData()
-        formData.append('image', file);
-        const imageUrl = (await this.$postQuestionImageApi(formData)).data.data.url;
-        this.editor.commands.setImage({ src: imageUrl }, )
+        const x = this.$emit('upload-image-callback', file);
+        this.editor.commands.setImage({ src: x.$parent.imageUrl }, )
       });
     },
     setLink() {
@@ -409,28 +407,6 @@ export default {
   },
 }
 </script>
-
-<style lang="sass">
-@function map-deep-merge($parent-map, $child-map)
-  $result: $parent-map
-
-  @each $key, $child in $child-map
-    $parent-has-key: map-has-key($result, $key)
-    $parent-value: map-get($result, $key)
-    $parent-type: type-of($parent-value)
-    $child-type: type-of($child)
-    $parent-is-map: $parent-type == map
-    $child-is-map: $child-type == map
-
-    @if (not $parent-has-key) or ($parent-type != $child-type) or (not ($parent-is-map and $child-is-map))
-      $result: map-merge($result, ( $key: $child ))
-
-    @else
-      $result: map-merge($result, ( $key: map-deep-merge($parent-value, $child) ))
-
-  @return $result
-
-</style>
 
 <style lang="scss">
 $grid-breakpoints: (

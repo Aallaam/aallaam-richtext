@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AallaamRichtext/>
+    <AallaamRichtext :withImage="true"/>
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'App',
   components: {
     AallaamRichtext
+  },
+  data() {
+    return {
+      imageUrl: ''
+    }
   }
 }
 </script>
